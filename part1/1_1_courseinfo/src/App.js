@@ -15,12 +15,20 @@ const App = () => {
     );
   };
 
-  const Content = (props) => {
+  const Part = (props) => {
+    return (
+      <p>
+        {props.part} (number of exercises: {props.exercises})
+      </p>
+    );
+  };
+
+  const Content = () => {
     return (
       <div>
-        <p>
-          {props.part} (number of exercises: {props.exercises})
-        </p>
+        <Part part={part1} exercises={exercises1} />
+        <Part part={part2} exercises={exercises2} />
+        <Part part={part3} exercises={exercises3} />
       </div>
     );
   };
@@ -40,9 +48,7 @@ const App = () => {
       <h2>
         <Header course={course} />
       </h2>
-      <Content part={part1} exercises={exercises1} />
-      <Content part={part2} exercises={exercises2} />
-      <Content part={part3} exercises={exercises3} />
+      <Content />
       <br />
       <Total total={exercises1 + exercises2 + exercises3} />
     </div>
